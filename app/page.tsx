@@ -19,7 +19,7 @@ export default function Page() {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const ctx = canvas.getContext('2d') as CanvasRenderingContext2D | null
+    const ctx = canvas.getContext('2d')
     if (!ctx) return
 
     const hexSize = 60
@@ -97,6 +97,7 @@ export default function Page() {
     }
 
     function animate() {
+      if (!ctx || !canvas) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       updateGlowIntensities()
 
@@ -108,6 +109,7 @@ export default function Page() {
     }
 
     function handleMouseMove(event: MouseEvent) {
+      if (!canvas) return
       const rect = canvas.getBoundingClientRect()
       mouseX = event.clientX - rect.left
       mouseY = event.clientY - rect.top

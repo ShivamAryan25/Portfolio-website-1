@@ -134,11 +134,10 @@ export default function Page() {
       <Navbar />
       
       <main className="relative z-10">
-        {/* Home Section */}
         <section id="home" className="min-h-screen flex flex-col justify-between">
-          <div className="container mx-auto px-20 pt-24 flex-grow flex flex-col justify-center">
-            <div className="flex justify-between items-center">
-              <div className="flex flex-col w-1/2 space-y-4">
+          <div className="container mx-auto px-4 md:px-20 pt-24 flex-grow flex flex-col justify-center">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="flex flex-col w-full md:w-1/2 space-y-4">
                 <h1 
                   className="text-[#4EA1FF] opacity-0 transition-opacity duration-1000 ease-in-out font-bold tracking-tight text-5xl"
                   style={{ 
@@ -191,7 +190,7 @@ export default function Page() {
                   </Button>
                 </div>
               </div>
-              <div className="w-1/2">
+              <div className="w-full md:w-1/2 mt-8 md:mt-0">
                 <StackedCards />
               </div>
             </div>
@@ -201,22 +200,18 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Projects Section */}
         <section id="projects">
           <ProjectsSection />
         </section>
 
-        {/* About Section */}
         <section id="about">
           <AboutSection />
         </section>
 
-        {/* Skills Section */}
         <section id="skills">
           <SkillsSection />
         </section>
 
-        {/* Connect Section */}
         <section id="connect">
           <ConnectSection />
         </section>

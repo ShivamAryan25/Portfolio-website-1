@@ -19,7 +19,7 @@ export default function Page() {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const ctx = canvas.getContext('2d')
+    const ctx = canvas.getContext('2d') as CanvasRenderingContext2D | null
     if (!ctx) return
 
     const hexSize = 60
@@ -32,6 +32,7 @@ export default function Page() {
     let mouseY = 0
 
     const resizeCanvas = () => {
+      if (!canvas) return
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
       createHexGrid()
@@ -45,6 +46,7 @@ export default function Page() {
     }
 
     function createHexGrid() {
+      if (!canvas) return
       hexagons = []
       for (let row = -1; row < Math.ceil(canvas.height / hexHeight) + 1; row++) {
         for (let col = -1; col < Math.ceil(canvas.width / (hexWidth * 0.75)) + 1; col++) {
@@ -56,6 +58,7 @@ export default function Page() {
     }
 
     function drawHexagon(x: number, y: number, glowIntensity: number) {
+      if (!ctx) return
       ctx.beginPath()
       for (let i = 0; i < 6; i++) {
         const angle = (Math.PI / 3) * i
